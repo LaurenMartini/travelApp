@@ -1,0 +1,81 @@
+/*Default mobile view*/
+.container{
+    display: grid;
+    grid-template-columns: 300px 300px;
+    grid-auto-rows: minmax(200px, auto);
+    grid-template-areas:
+        "sd"
+        "main";
+}
+
+.sidebar{
+    grid-area:sd;
+    padding: 0 25px;
+}
+
+.main{
+    grid-area: main;
+}
+
+/*Medium Sized Screen*/
+@media(min-width: 600px) and (max-width: 900px) {
+    .container{
+        display: grid;
+        grid-template-columns: 200px 200px 500px;
+        grid-auto-rows: minmax(200px, auto);
+        grid-template-areas: "sd sd main";
+    }
+}
+
+/*Large Sized Screen*/
+@media(min-width: 901px){
+    .container{
+        display: grid;
+        grid-template-columns: 200px 200px 500px;
+        grid-auto-rows: minmax(200px, auto);
+        grid-template-areas: "sd sd main";
+    }
+}
+
+/*general css styles*/
+body {
+    background-color: aqua;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input {
+    font-family: 'Montserrat', sans-serif;
+}
+
+textarea {
+    font-family: 'Montserrat', sans-serif;
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+}
+
+/*form styles*/
+.formFeelings {
+    margin-top: 20px;
+}
+
+.formBtn {
+    margin-top: 20px;
+}
+
+/*post styles*/
+.card {
+    color: white;
+    background-color: black;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#archiveHeader {
+    display: none;
+}
