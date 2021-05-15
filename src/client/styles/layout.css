@@ -2,7 +2,7 @@
 .container{
     display: grid;
     grid-template-columns: 300px 300px;
-    grid-auto-rows: minmax(200px, auto);
+    grid-auto-rows: minmax(100px, auto);
     grid-template-areas:
         "hd"
         "sd"
@@ -20,11 +20,11 @@
 
 .sidebar{
     grid-area: sd;
-    padding: 0 25px;
 }
 
 .main{
     grid-area: main;
+    background-color: #64E8FF;
 }
 
 .footer{

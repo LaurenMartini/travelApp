@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <title>SoJournal</title>
@@ -7,53 +7,224 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../styles/base.css">
         <link rel="stylesheet" href="../styles/layout.css">
+        <!--font-awesome-->
+        <script src="https://kit.fontawesome.com/5b0235bb51.js" crossorigin="anonymous"></script>
         <!--fonts-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
+        <!--header 1 font-->
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+        <!--accent font-->
+        <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
         <!--body font-->
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="container">
             <div class="header">
                 <header>
                     <h1 class="logo">SoJournal</h1>
+                    <h2 class="definition">so&#183;jour&#183;nal - a journal for a sojourn.</h2>
                 </header>
             </div>
             <div class="sidebar">
-                sidebar
-                <!-- <div id=app>
-                    <div class="formBody">
-                        <div class="formZip">
-                            <label class="formLabel">
-                                Zip Code:
-                                <input type="text" id="zip" placeholder="enter zip code here">
-                            </label>
-                        </div>
-                        <div class="formFeelings">
-                            <label class="formLabel">Today's Mood and Thoughts:</label>
-                            <textarea id="feelings" placeholder="enter your feelings here" rows="10" cols="40"></textarea>
+                <button class="addTrip" type="button"> + Add Trip</button>
+                <div id="tripHolder" class="tripCardHolder">
+                    <div class="tripCard">
+                        <img class="cardImg" src="../media/testImg.jpg" alt="island covered with plants">
+                        <div class="cardContent">
+                            <div class="tripDestinations">
+                                Destinations
+                            </div>
+                            <div class="tripDates">
+                                5/14/21 - 5/20/21
+                            </div>
                         </div>
                     </div>
-                    <div class="formBtn">
-                        <button type="submit" class="btn" id="generate">Journal!</button>
+                    <div class="tripCard">
+                        <img class="cardImg" src="../media/testImg.jpg" alt="island covered with plants">
+                        <div class="cardContent">
+                            <div class="tripDestinations">
+                                Destinations
+                            </div>
+                            <div class="tripDates">
+                                5/14/21 - 5/20/21
+                            </div>
+                        </div>
                     </div>
-                </div> -->
+                </div>
             </div>
             <div class="main">
-                main content
-                <!-- <h2>Latest Post:</h2>
-                <div id="entryHolder" class="card">
-                    <div id="date"></div>
-                    <div id="temp"></div>
-                    <div id="content"></div>
+                <div id="mainContent">
+                    <!--welcome section - for no content selected-->
+                    <!-- <div id="welcomeSection" class="welcome">
+                        <h2 class="welcomeHeader">Welcome!</h2>
+                        <div class="welcomeContent">
+                            <b>+ Add Trip</b> to add a new trip OR <br>
+                            Select an existing trip from the sidebar to get started
+                        </div>
+                    </div> -->
+
+                    <!--trip content - trip selected-->
+                    <!-- <div id="tripContentSection" class="tripContent">
+                        <div class="tripHeader">
+                            <h2>Destinations/Trip Name...</h2>
+                        </div>
+                        <div class="tripButtonsContainer">
+                            <button class="tripButton" type="button">
+                                <i class="fas fa-tasks"></i>
+                                todos
+                            </button>
+                            <button class="tripButton" type="button">
+                                <i class="fas fa-list"></i>
+                                packing list
+                            </button>
+                            <button class="tripButton" type="button">
+                                <i class="fas fa-plus"></i>
+                                add dest
+                            </button>
+                            <button class="tripButton" type="button">
+                                <i class="fas fa-download"></i>
+                                export
+                            </button>
+                            <button class="tripButton" type="button">
+                                <i class="fas fa-edit"></i>
+                                edit
+                            </button>
+                            <button class="tripButton" type="button">
+                                <i class="fas fa-trash-alt"></i>
+                                remove
+                            </button>
+                        </div>
+                        <div class="destinationContainer">
+                            <div class="destinationHeader">
+                                <h3>Destination 1</h3>
+                                <div class="destDates">
+                                    5/14/21 - 5/20/21
+                                </div>
+                            </div>
+                            <div class="destinationForecast">
+                                <div class="destinationForecastContainer">
+                                    <div class="forecastInfo">
+                                        <i class="fas fa-sun fa-2x"></i>
+                                        <div class="temp">75</div>
+                                        <div class="temp">65</div>
+                                    </div>
+                                    <div class="forecastInfo">
+                                        <i class="fas fa-sun fa-2x"></i>
+                                        <div class="temp">75</div>
+                                        <div class="temp">65</div>
+                                    </div>
+                                    <div class="forecastInfo">
+                                        <i class="fas fa-sun fa-2x"></i>
+                                        <div class="temp">75</div>
+                                        <div class="temp">65</div>
+                                    </div>
+                                    <div class="forecastInfo">
+                                        <i class="fas fa-sun fa-2x"></i>
+                                        <div class="temp">75</div>
+                                        <div class="temp">65</div>
+                                    </div>
+                                    <div class="forecastInfo">
+                                        <i class="fas fa-sun fa-2x"></i>
+                                        <div class="temp">75</div>
+                                        <div class="temp">65</div>
+                                    </div>
+                                    <div class="forecastInfo">
+                                        <i class="fas fa-sun fa-2x"></i>
+                                        <div class="temp">75</div>
+                                        <div class="temp">65</div>
+                                    </div>
+                                    <div class="forecastInfo">
+                                        <i class="fas fa-sun fa-2x"></i>
+                                        <div class="temp">75</div>
+                                        <div class="temp">65</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="destinationDetails">
+                                <div class="detailElem">Hotel</div>
+                                <div class="detailElem">Flight</div>
+                            </div>
+                            <div class="countryContainer">
+                                <h4 class="countryHeader">Country Info</h4>
+                                <div class="countryInfo">country info paragraph</div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!--trip form - edit/create mode-->
+                    <div id="tripForm" class="tripFormContent">
+                        <div class="destinationFormElem">
+                            <label class="formLabel">
+                                Trip Name:
+                                <input type="text" id="tripName" placeholder="Enter name of trip">
+                            </label>
+                        </div>
+                        <div class="tripButtonsContainer">
+                            <button class="tripButton" type="button">
+                                <i class="fas fa-tasks"></i>
+                                todos
+                            </button>
+                            <button class="tripButton" type="button">
+                                <i class="fas fa-list"></i>
+                                packing list
+                            </button>
+                            <button class="tripButton" type="button">
+                                <i class="fas fa-plus"></i>
+                                add dest
+                            </button>
+                            <button class="tripButton" type="button">
+                                <i class="fas fa-save"></i>
+                                save
+                            </button>
+                            <button class="tripButton" type="button">
+                                <i class="fas fa-window-close"></i>
+                                cancel
+                            </button>
+                        </div>
+                        <div class="destinationContainer">
+                            <div class="destinationHeader">
+                                <div class="destinationFormElem">
+                                    <label class="formLabel">
+                                        Destination:
+                                        <input type="text" id="tripName" placeholder="Enter destination location">
+                                    </label>
+                                </div>
+                                <!--this will only be added to every destination after the first-->
+                                <!-- <div class="removeDestination">
+                                    <button class="tripButton" type="button">
+                                        <i class="fas fa-trash-alt"></i>
+                                        remove
+                                    </button>
+                                </div> -->
+                                <div class="destinationFormElem">
+                                    <label class="formLabel">
+                                        Start Date:
+                                        <input type="text" id="tripName" placeholder="Enter start date">
+                                    </label>
+                                    <label class="formLabel">
+                                        End Date:
+                                        <input type="text" id="tripName" placeholder="Enter end date">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="destinationFormElem">
+                                <label class="formLabel">
+                                    Hotel:
+                                    <input type="text" id="tripName" placeholder="Enter hotel name">
+                                </label>
+                                <label class="formLabel">
+                                    Flight:
+                                    <input type="text" id="tripName" placeholder="Enter flight number">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div id="archivePostsSection">
-                    <h2 id="archiveHeader">Archived Posts:</h2>
-                    <div id="archivePosts"></div>
-                </div> -->
             </div>
             <div class="footer">
-                footer
+                <a href="">About</a>
+                <a class="secondaryLinks" href="">Contact Us</a>
             </div>
         </div>
         <script src="../index.js" type="text/javascript"></script>
