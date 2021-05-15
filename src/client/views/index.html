@@ -5,8 +5,8 @@
         <title>SoJournal</title>
         <meta name="description" content="Travel app for all your travel needs!"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-
+        <link rel="stylesheet" href="../styles/base.css">
+        <link rel="stylesheet" href="../styles/layout.css">
         <!--fonts-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <!--body font-->
@@ -14,9 +14,14 @@
     </head>
     <body>
         <div class="container">
+            <div class="header">
+                <header>
+                    <h1 class="logo">SoJournal</h1>
+                </header>
+            </div>
             <div class="sidebar">
-                <h1>Weather Journal App</h1>
-                <div id=app>
+                sidebar
+                <!-- <div id=app>
                     <div class="formBody">
                         <div class="formZip">
                             <label class="formLabel">
@@ -32,10 +37,11 @@
                     <div class="formBtn">
                         <button type="submit" class="btn" id="generate">Journal!</button>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="main">
-                <h2>Latest Post:</h2>
+                main content
+                <!-- <h2>Latest Post:</h2>
                 <div id="entryHolder" class="card">
                     <div id="date"></div>
                     <div id="temp"></div>
@@ -44,9 +50,12 @@
                 <div id="archivePostsSection">
                     <h2 id="archiveHeader">Archived Posts:</h2>
                     <div id="archivePosts"></div>
-                </div>
+                </div> -->
+            </div>
+            <div class="footer">
+                footer
             </div>
         </div>
-        <script src="app.js" type="text/javascript"></script>
+        <script src="../index.js" type="text/javascript"></script>
     </body>
 </html>
