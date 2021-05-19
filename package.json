@@ -27,8 +27,7 @@
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "node-fetch": "^2.6.1",
-    "webpack": "^5.37.0",
-    "webpack-cli": "^4.7.0"
+    "serve": "^11.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.14.2",
@@ -44,6 +43,9 @@
     "sass-loader": "^11.1.1",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^5.1.2",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2",
     "workbox-webpack-plugin": "^6.1.5"
   }
 }
