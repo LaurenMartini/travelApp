@@ -1,3 +1,5 @@
+import fetch from "node-fetch";
+
 function saveTrip(event) {
     event.preventDefault();
 
@@ -7,10 +9,30 @@ function saveTrip(event) {
     let startDate = document.getElementById('startDate').value;
     let endDate = document.getElementById('endDate').value;
 
-    console.log('trip name: ', tripName);
-    console.log('dest name: ', destName);
-    console.log('start date: ', startDate);
-    console.log('end date: ', endDate);
+    //TODO: add the check for the text here
+    getGeoData('http://localhost:8081/add', destName).then(function(data) {
+        console.log('after geo request');
+        console.log('data: ', data);
+    });
+}
+
+const getGeoData = async(url, userData) => {
+    const res = await fetch(url, {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({userData})
+    });
+    try{
+        console.log('in try');
+        const resData = await res.json();
+        console.log('resData: ', resData);
+        return resData;
+    } catch(error) {
+        console.log('error', error);
+    }
 }
 
 export { saveTrip }
