@@ -1,8 +1,8 @@
 import { saveTrip } from './js/saveAndEditTrip'
 
 //import css/sass
-import './styles/base.css'
-import './styles/layout.css'
+import './styles/base.scss'
+import './styles/layout.scss'
 
 //event listener to check that page is loaded
 window.addEventListener('DOMContentLoaded', (event) => {

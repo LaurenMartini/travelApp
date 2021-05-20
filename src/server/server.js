@@ -4,8 +4,15 @@ projectData = {};
 //require express, body-parser, and cors
 var path = require('path');
 const express = require('express');
+const dotenv = require('dotenv');
+const fetch = require('node-fetch');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+
+//define data from .env file
+const GEO_KEY = process.env.GEO_USERNAME;
+const WEATHER_KEY = process.env.WEATHER_API_KEY;
+const PIC_KEY = process.env.PIXABAY_API_KEY;
 
 //start instance
 const app = express();
@@ -20,34 +27,3 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 
-// //create server
-// const port = 8000;
-
-// const server = app.listen(port, listening);
-
-// //GET
-// app.get('/all', sendData);
-
-// //POST
-// app.post('/add', addJournalData);
-
-// //helper functions
-// function listening() {
-//     console.log('server running');
-//     console.log(`running on localhost: ${port}`);
-// }
-
-// function sendData(req, res) {
-//     res.send(projectData);
-// }
-
-// function addJournalData(req, res) {
-//     newJournalItem = {
-//         temp: req.body.temperature,
-//         date: req.body.date,
-//         userNote: req.body.userResponse
-//     }
-
-//     projectData = newJournalItem;
-//     res.send(projectData);
-// }

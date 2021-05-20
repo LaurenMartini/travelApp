@@ -5,8 +5,8 @@
         <title>SoJournal</title>
         <meta name="description" content="Travel app for all your travel needs!"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../styles/base.css">
-        <link rel="stylesheet" href="../styles/layout.css">
+        <!-- <link rel="stylesheet" href="../styles/base.css">
+        <link rel="stylesheet" href="../styles/layout.css"> -->
         <!--font-awesome-->
         <script src="https://kit.fontawesome.com/5b0235bb51.js" crossorigin="anonymous"></script>
         <!--fonts-->
@@ -187,7 +187,7 @@
                                 <div class="destinationFormElem">
                                     <label class="formLabel">
                                         Destination:
-                                        <input type="text" id="tripName" placeholder="Enter destination city">
+                                        <input type="text" id="destinationName" placeholder="Enter destination city">
                                     </label>
                                 </div>
                                 <!--this will only be added to every destination after the first-->
@@ -227,6 +227,14 @@
                 <a class="secondaryLinks" href="">Contact Us</a>
             </div>
         </div>
-        <script src="../index.js" type="text/javascript"></script>
+        <script>
+            // from: https://classroom.udacity.com/nanodegrees/nd0011/parts/5bb114fe-8add-4c47-bc13-1cee34886c1a/modules/0eb61bba-702e-4dc3-bf32-a838bac60c33/lessons/1cfa87cb-377a-4746-a32a-64853dd2624b/concepts/dda219fc-dc2d-4238-9501-2142f3dca765
+            // if ('serviceWorker' in navigator) {
+            //     // Use the window load event to keep the page load performant
+            //     window.addEventListener('load', () => {
+            //         navigator.serviceWorker.register('/service-worker.js');
+            //     });
+            // }
+        </script>
     </body>
 </html>
