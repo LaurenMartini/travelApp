@@ -31,7 +31,7 @@ const getGeoData = async(url, userData) => {
         console.log('resData: ', resData);
         return resData;
     } catch(error) {
-        console.log('error', error);
+        console.log('error in get geo data', error);
     }
 }
 
