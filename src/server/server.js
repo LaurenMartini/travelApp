@@ -53,6 +53,6 @@ app.listen(8081, function() {
   console.log('Example app listening on port 8081!');
 });
 
-app.post('http://localhost:8081/add', async function(req, res) {
+app.post('/add', async function(req, res) {
   res.send(await getGeoData(req.body.userData));
 });
