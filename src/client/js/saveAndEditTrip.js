@@ -10,7 +10,7 @@ function saveTrip(event) {
     let endDate = document.getElementById('endDate').value;
 
     //TODO: add the check for the text here
-    getGeoData('/add', destName).then(function(data) {
+    getGeoData('http://localhost/8081/add', destName).then(function(data) {
         console.log('after geo request');
         console.log('data: ', data);
     });

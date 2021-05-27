@@ -10,6 +10,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 //define data from .env file
+dotenv.config();
 const GEO_KEY = process.env.GEO_USERNAME;
 const WEATHER_KEY = process.env.WEATHER_API_KEY;
 const PIC_KEY = process.env.PIXABAY_API_KEY;
