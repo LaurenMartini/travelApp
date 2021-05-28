@@ -13,8 +13,10 @@ function saveTrip(event) {
         //get current date
         const currentDate = new Date();
         //calculate number of days til the trip
-        const countdown = calculateCountdown(currentDate, startDate);
-        console.log('countdown: ', countdown);
+        const countdown = calculateDateDiff(currentDate, startDate);
+        //calculate length of trip (days)
+        const lengthOfTrip = calculateDateDiff((new Date(startDate)), endDate);
+        console.log('length of trip: ', lengthOfTrip);
 
         getGeoData('http://localhost:8081/add', destName).then(function(data) {
             //lat and longitude for the weather app
@@ -98,8 +100,8 @@ const getWeatherForecast = async(url, latAndLong) => {
     }
 }
 
-function calculateCountdown(currentDate, startDate) {
-    const diffTime = Math.abs((new Date(startDate)) - currentDate);
+function calculateDateDiff(currentDate, refDate) {
+    const diffTime = Math.abs((new Date(refDate)) - currentDate);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays;
 }
