@@ -15,6 +15,8 @@ const GEO_KEY = process.env.GEO_USERNAME;
 const WEATHER_KEY = process.env.WEATHER_API_KEY;
 const PIC_KEY = process.env.PIXABAY_API_KEY;
 const baseGeoUrl = 'http://api.geonames.org/searchJSON';
+const baseCurrentWeatherUrl = 'https://api.weatherbit.io/v2.0/current';
+const baseForecastWeatherUrl = 'https://api.weatherbit.io/v2.0/forecast/daily';
 
 //start instance
 const app = express();
@@ -35,7 +37,28 @@ const getGeoData = async(userData) => {
   const res = await fetch(`${baseGeoUrl}?q=${userData}&maxRows=1&username=${GEO_KEY}`);
   try {
     const data = await res.json();
-    console.log('data: ', data);
+    return data;
+  } catch(error) {
+    console.log('error', error);
+  }
+}
+
+//weatherbit helpers
+const getCurrentWeather = async(latAndLong) => {
+  console.log('lat and long: ', latAndLong);
+  const res = await fetch(`${baseCurrentWeatherUrl}?lat=${latAndLong.lat}&lon=${latAndLong.long}&key=${WEATHER_KEY}`);
+  try {
+    const data = await res.json();
+    return data;
+  } catch(error) {
+    console.log('error', error);
+  }
+}
+
+const getWeatherForecast = async(latAndLong) => {
+  const res = await fetch(`${baseForecastWeatherUrl}?lat=${latAndLong.lat}&lon=${latAndLong.long}&key=${WEATHER_KEY}`);
+  try {
+    const data = await res.json();
     return data;
   } catch(error) {
     console.log('error', error);
@@ -57,3 +80,11 @@ app.listen(8081, function() {
 app.post('/add', async function(req, res) {
   res.send(await getGeoData(req.body.userData));
 });
+
+app.post('/currentWeather', async function(req, res) {
+  res.send(await getCurrentWeather(req.body.latAndLong));
+});
+
+app.post('/weatherForecast', async function(req, res) {
+  res.send(await getWeatherForecast(req.body.latAndLong));
+})

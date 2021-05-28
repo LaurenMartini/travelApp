@@ -1,4 +1,5 @@
 import { saveTrip } from './js/saveAndEditTrip'
+import { checkDestinationForm } from './js/formChecker'
 
 //import css/sass
 import './styles/base.scss'
@@ -13,5 +14,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 export {
-    saveTrip
+    saveTrip,
+    checkDestinationForm
 }
