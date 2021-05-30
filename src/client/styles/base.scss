@@ -1,8 +1,21 @@
+/*Variables*/
+/*colors*/
+$mainColor: #004CAF;
+$baseColor: #ffffff;
+$defColor: #042C5F;
+$secondaryColor: #3068BD;
+$warningColor: #D81B60;
+$tripColor: #64E8FF;
+/*fonts*/
+$bodyFont: 'Comfortaa', cursive;
+$defFont: 'Caveat', cursive;
+$logoFont: 'Dancing Script', cursive;
+
 /*general elements*/
 body{
-    background-color: #ffffff;
-    font-family: 'Comfortaa', cursive;
-    color: #004CAF;
+    background-color: $baseColor;
+    font-family: $bodyFont;
+    color: $mainColor;
 }
 
 a{
@@ -14,16 +27,15 @@ a{
 }
 
 .definition{
-    font-family: 'Caveat', cursive;
-    color: #042C5F;
+    font-family: $defFont;
+    color: $defColor;
 }
 
 .logo{
-    font-family: 'Dancing Script', cursive;
+    font-family: $logoFont;
     font-size: 4em;
     margin-bottom: 0px;
-    color: #3068BD;
-    /* color: #5E98F0; */
+    color: $secondaryColor;
 }
 
 .welcome {
@@ -31,8 +43,8 @@ a{
 }
 
 .welcomeHeader{
-    font-family: 'Caveat', cursive;
-    color: #004CAF;
+    font-family: $defFont;
+    color: $mainColor;
     font-size: 2em;
     text-align: center;
 }
@@ -55,18 +67,18 @@ a{
     height: 50px;
     margin-bottom: 10px;
     border: none;
-    background-color: #3068BD;
-    font-family: 'Caveat', cursive;
-    color: #ffffff;
+    background-color: $secondaryColor;
+    font-family: $defFont;
+    color: $baseColor;
     font-size: 1.5em;
     text-align: center;
 }
 
 .tripButton{
     border: none;
-    background-color: #3068BD;
-    font-family: 'Caveat', cursive;
-    color: #ffffff;
+    background-color: $secondaryColor;
+    font-family: $defFont;
+    color: $baseColor;
     font-size: 1.25em;
     margin-bottom: 5px;
 }
@@ -78,7 +90,7 @@ a{
     position: relative;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
     /* transition: 0.3s; */
-    background-color: #64E8FF;
+    background-color: $tripColor;
     margin-bottom: 10px;
 }
 
@@ -121,8 +133,8 @@ a{
 }
 
 .forecastInfo {
-    background-color: #042C5F;
-    color: #ffffff;
+    background-color: $defColor;
+    color: $baseColor;
     min-width: 40px;
     width: auto;
     height: 100px;
@@ -147,8 +159,14 @@ a{
     position: relative;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s; */
-    background-color: #042C5F;
-    color: #ffffff;
+    background-color: $defColor;
+    color: $baseColor;
     text-align: center;
     padding: 15px;
+}
+
+.warningElem {
+    color: $warningColor;
+    font-weight: 900;
+    display: none;
 }

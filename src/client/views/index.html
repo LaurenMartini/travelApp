@@ -27,31 +27,8 @@
                 </header>
             </div>
             <div class="sidebar">
-                <button class="addTrip" type="button"> + Add Trip</button>
-                <div id="tripHolder" class="tripCardHolder">
-                    <div class="tripCard">
-                        <img class="cardImg" src="../media/testImg.jpg" alt="island covered with plants">
-                        <div class="cardContent">
-                            <div class="tripDestinations">
-                                Destinations
-                            </div>
-                            <div class="tripDates">
-                                5/14/21 - 5/20/21
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tripCard">
-                        <img class="cardImg" src="../media/testImg.jpg" alt="island covered with plants">
-                        <div class="cardContent">
-                            <div class="tripDestinations">
-                                Destinations
-                            </div>
-                            <div class="tripDates">
-                                5/14/21 - 5/20/21
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <button class="addTrip" type="button" id="addTripBtn"> + Add Trip</button>
+                <div id="tripHolder" class="tripCardHolder"></div>
             </div>
             <div class="main">
                 <div id="mainContent">
@@ -161,18 +138,6 @@
                             </label>
                         </div>
                         <div class="tripButtonsContainer">
-                            <button class="tripButton" id="todosCreate" type="button">
-                                <i class="fas fa-tasks"></i>
-                                todos
-                            </button>
-                            <button class="tripButton" id="packingListCreate" type="button">
-                                <i class="fas fa-list"></i>
-                                packing list
-                            </button>
-                            <button class="tripButton" id="addDestination" type="button">
-                                <i class="fas fa-plus"></i>
-                                add dest
-                            </button>
                             <button class="tripButton" id="saveTrip" type="button">
                                 <i class="fas fa-save"></i>
                                 save
@@ -190,13 +155,6 @@
                                         <input type="text" id="destinationName" placeholder="Enter destination city">
                                     </label>
                                 </div>
-                                <!--this will only be added to every destination after the first-->
-                                <!-- <div class="removeDestination">
-                                    <button class="tripButton" type="button">
-                                        <i class="fas fa-trash-alt"></i>
-                                        remove
-                                    </button>
-                                </div> -->
                                 <div class="destinationFormElem">
                                     <label class="formLabel">
                                         Start Date:
@@ -217,6 +175,9 @@
                                     Flight:
                                     <input type="text" id="flightInfo" placeholder="Enter flight number">
                                 </label>
+                            </div>
+                            <div class="warningElem" id="warningMessage">
+                                <span>Trip, Destination, Start Date, and End Date required to save.</span>
                             </div>
                         </div>
                     </div>

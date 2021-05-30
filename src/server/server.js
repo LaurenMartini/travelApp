@@ -8,6 +8,7 @@ const dotenv = require('dotenv');
 const fetch = require('node-fetch');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const e = require('express');
 
 //define data from .env file
 dotenv.config();
@@ -17,6 +18,8 @@ const PIC_KEY = process.env.PIXABAY_API_KEY;
 const baseGeoUrl = 'http://api.geonames.org/searchJSON';
 const baseCurrentWeatherUrl = 'https://api.weatherbit.io/v2.0/current';
 const baseForecastWeatherUrl = 'https://api.weatherbit.io/v2.0/forecast/daily';
+const basePixabayUrl = 'https://pixabay.com/api/';
+const baseCountryUrl = 'https://restcountries.eu/rest/v2/name/';
 
 //start instance
 const app = express();
@@ -44,9 +47,32 @@ const getGeoData = async(userData) => {
 }
 
 //weatherbit helpers
-const getCurrentWeather = async(latAndLong) => {
-  console.log('lat and long: ', latAndLong);
-  const res = await fetch(`${baseCurrentWeatherUrl}?lat=${latAndLong.lat}&lon=${latAndLong.long}&key=${WEATHER_KEY}`);
+const getWeather = async(weatherData) => {
+  if (weatherData.countdown < 7) {
+    //get current weather
+    const res = await fetch(`${baseCurrentWeatherUrl}?lat=${weatherData.lat}&lon=${weatherData.long}&key=${WEATHER_KEY}`);
+    try {
+      const data = await res.json();
+      return data;
+    } catch(error) {
+      console.log('error', error);
+    }
+  } else {
+    //get weather forecast
+    const res = await fetch(`${baseForecastWeatherUrl}?lat=${weatherData.lat}&lon=${weatherData.long}&key=${WEATHER_KEY}`);
+    try {
+      const data = await res.json();
+      return data;
+    } catch(error) {
+      console.log('error', error);
+    }
+  }
+  
+}
+
+const getDestImage = async(destInfo) => {
+  //first try to get an image for the city
+  const res = await fetch(`${basePixabayUrl}?key=${PIC_KEY}&q=${destInfo.city}&image_type=photo`);
   try {
     const data = await res.json();
     return data;
@@ -55,8 +81,8 @@ const getCurrentWeather = async(latAndLong) => {
   }
 }
 
-const getWeatherForecast = async(latAndLong) => {
-  const res = await fetch(`${baseForecastWeatherUrl}?lat=${latAndLong.lat}&lon=${latAndLong.long}&key=${WEATHER_KEY}`);
+const getCountryInfo = async(countryData) => {
+  const res = await fetch(`${baseCountryUrl}${countryData.country}?fullText=true`);
   try {
     const data = await res.json();
     return data;
@@ -81,10 +107,14 @@ app.post('/add', async function(req, res) {
   res.send(await getGeoData(req.body.userData));
 });
 
-app.post('/currentWeather', async function(req, res) {
-  res.send(await getCurrentWeather(req.body.latAndLong));
-});
+app.post('/weather', async function(req, res) {
+  res.send(await getWeather(req.body.weatherData));
+})
 
-app.post('/weatherForecast', async function(req, res) {
-  res.send(await getWeatherForecast(req.body.latAndLong));
+app.post('/destImage', async function(req, res) {
+  res.send(await getDestImage(req.body.destInfo));
+})
+
+app.post('/countryInfo', async function(req, res) {
+  res.send(await getCountryInfo(req.body.countryData));
 })
