@@ -1,5 +1,6 @@
+const genTripView = require('./generateTripView');
+
 function buildTripCard(data) {
-    console.log('data in build trip card: ', data);
     //create document fragment
     const fragment = document.createDocumentFragment();
     //create elements and attributes
@@ -9,14 +10,22 @@ function buildTripCard(data) {
     const destElem = document.createElement('div');
     const dateElem = document.createElement('div');
 
-    let cardId = 'cardNum' + String(JSON.parse(localStorage.getItem('trips')).length);
+    let cardId = 'cardNum_' + data.tripNum;
 
     cardElem.setAttribute('class', 'tripCard');
     cardElem.setAttribute('id', cardId);
     cardElem.addEventListener('click', function(event) {
         event.preventDefault();
-        //show trip details on the right
-        console.log('event: ', event);
+        //get the id of the element or the offset parent element
+        let elementId = event.target.id;
+        if (elementId === "") {
+            elementId = event.target.offsetParent.id;
+        }
+        //isolate the number in that id (always after an underscore);
+        const elementNum = elementId.split('_')[1];
+        //generate the trip view for the trip at the localStorage array
+        const tripElem = JSON.parse(localStorage.getItem('trips'))[elementNum];
+        genTripView.generateTripView(tripElem);
     })
 
     cardImg.setAttribute('class', 'cardImg');
@@ -42,6 +51,11 @@ function buildTripCard(data) {
 
     //now append to the trip holder on the sidebar
     document.getElementById('tripHolder').appendChild(fragment);
+}
+
+function formatDate(dateStr) {
+    const dateElems = dateStr.split('-');
+    return dateElems[1] + '/' + dateElems[2] + '/' + dateElems[0];
 }
 
 export { buildTripCard }
