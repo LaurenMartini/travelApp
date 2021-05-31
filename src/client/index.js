@@ -2,8 +2,9 @@ import { saveTrip } from './js/saveAndEditTrip'
 import { buildTripCard } from './js/buildTripCard'
 import { generateTripView } from './js/generateTripView'
 import { addTrip } from './js/addTrip'
-import { deleteTrip } from './js/deleteTrip';
-import { cancelEditOrCreate } from './js/cancelTrip';
+import { deleteTrip } from './js/deleteTrip'
+import { cancelEditOrCreate } from './js/cancelTrip'
+import { downloadTrip } from './js/downloadTrip'
 
 //import css/sass
 import './styles/base.scss'
@@ -26,6 +27,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('saveTrip').addEventListener('click', saveTrip);
     document.getElementById('addTripBtn').addEventListener('click', addTrip);
     document.getElementById('cancel').addEventListener('click', cancelEditOrCreate);
+    document.getElementById('download').addEventListener('click', downloadTrip);
+    document.getElementById('remove').addEventListener('click', deleteTrip);
 });
 
 export {
@@ -34,5 +37,6 @@ export {
     generateTripView,
     addTrip,
     deleteTrip,
-    cancelEditOrCreate
+    cancelEditOrCreate,
+    downloadTrip
 }

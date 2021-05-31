@@ -25,7 +25,7 @@ function buildTripCard(data) {
         const elementNum = elementId.split('_')[1];
         //generate the trip view for the trip at the localStorage array
         const tripElem = JSON.parse(localStorage.getItem('trips'))[elementNum];
-        genTripView.generateTripView(tripElem);
+        genTripView.generateTripView(tripElem, elementNum);
     })
 
     cardImg.setAttribute('class', 'cardImg');

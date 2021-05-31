@@ -53,10 +53,6 @@ a{
     text-align: center;
 }
 
-.tripContent {
-    display: none;
-}
-
 .tripFormContent {
     display: none;
     margin: 15px;
@@ -112,6 +108,7 @@ a{
 
 /*trip content styles*/
 .tripContent{
+    display: none;
     margin: 0px 15px 15px;
 }
 
@@ -119,6 +116,15 @@ a{
     content: '';
     display: inline-block;
     width: 99.5%;
+}
+
+.destinationImage {
+    display: flex;
+    flex-direction: column;
+}
+
+.destImg {
+    width: 90%;
 }
 
 .destDates{

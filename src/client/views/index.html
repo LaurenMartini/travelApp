@@ -44,42 +44,40 @@
                     <!--trip content - trip selected-->
                     <div id="tripContentSection" class="tripContent">
                         <div class="tripHeader">
-                            <h2>Destinations/Trip Name...</h2>
+                            <h2 id="tripHeader">Destinations/Trip Name...</h2>
                         </div>
                         <div class="tripButtonsContainer">
-                            <button class="tripButton" type="button">
-                                <i class="fas fa-tasks"></i>
-                                todos
-                            </button>
-                            <button class="tripButton" type="button">
-                                <i class="fas fa-list"></i>
-                                packing list
-                            </button>
-                            <button class="tripButton" type="button">
-                                <i class="fas fa-plus"></i>
-                                add dest
-                            </button>
-                            <button class="tripButton" type="button">
+                            <button class="tripButton" type="button" id="download">
                                 <i class="fas fa-download"></i>
                                 export
                             </button>
-                            <button class="tripButton" type="button">
+                            <button class="tripButton" type="button" id="edit">
                                 <i class="fas fa-edit"></i>
                                 edit
                             </button>
-                            <button class="tripButton" type="button">
+                            <button class="tripButton" type="button" id="remove">
                                 <i class="fas fa-trash-alt"></i>
                                 remove
                             </button>
                         </div>
+                        <div class="destinationImage">
+                            <img class="destImg" id="destImg" src='/src/client/media/testImg.jpg' alt="testpic">
+                        </div>
                         <div class="destinationContainer">
                             <div class="destinationHeader">
-                                <h3>Destination 1</h3>
-                                <div class="destDates">
+                                <h3 id="destHeader">Destination 1</h3>
+                                <div class="destDates" id="destDates">
                                     5/14/21 - 5/20/21
+                                </div>
+                                <div class="destDates" id="countdown">
+                                    Countdown
+                                </div>
+                                <div class="destDates" id="length">
+                                    Length of Trip
                                 </div>
                             </div>
                             <div class="destinationForecast">
+                                <h4>Weather</h4>
                                 <div class="destinationForecastContainer">
                                     <div class="forecastInfo">
                                         <i class="fas fa-sun fa-2x"></i>

@@ -1,5 +1,5 @@
-function deleteTrip(tripToRemove) {
-    console.log('trip to remove: ', tripToRemove);
+function deleteTrip(tripNum) {
+    console.log('trip to remove: ', tripNum);
 }
 
 export { deleteTrip };
