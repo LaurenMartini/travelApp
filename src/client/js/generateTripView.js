@@ -22,7 +22,9 @@ function generateTripView(currentTrip, tripNum) {
     document.getElementById('destImg').setAttribute('alt', dest.image.tags);
     document.getElementById('destHeader').innerText = dest.destinationName;
     document.getElementById('destDates').innerText = formatDate(dest.startDate) + ' - ' + formatDate(dest.endDate);
-    document.getElementById('countdown').innerText = dest.countdown + ' days left til departure!';
+    if(dest.countdown > 0) {
+        document.getElementById('countdown').innerText = dest.countdown + ' days left til departure!';
+    }
     document.getElementById('length').innerText = 'Trip lasts: ' + dest.lengthOfTrip + ' days.';
     document.getElementById('tempIcon').setAttribute('src', '/src/client/media/icons/' + dest.weatherData.weather.icon + '.png');
     document.getElementById('tempIcon').setAttribute('alt', dest.weatherData.weather.description);
