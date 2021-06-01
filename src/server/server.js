@@ -12,9 +12,9 @@ const e = require('express');
 
 //define data from .env file
 dotenv.config();
-const GEO_KEY = process.env.GEO_USERNAME;
-const WEATHER_KEY = process.env.WEATHER_API_KEY;
-const PIC_KEY = process.env.PIXABAY_API_KEY;
+const GEO_KEY = 'lmartini55';
+const WEATHER_KEY = '33d71ffe6681480d889abc4cd74e62c6';
+const PIC_KEY = '21650342-1341bbdacd87f300468ce660d';
 const baseGeoUrl = 'http://api.geonames.org/searchJSON';
 const baseCurrentWeatherUrl = 'https://api.weatherbit.io/v2.0/current';
 const baseForecastWeatherUrl = 'https://api.weatherbit.io/v2.0/forecast/daily';
