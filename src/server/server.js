@@ -50,7 +50,7 @@ const getGeoData = async(userData) => {
 const getWeather = async(weatherData) => {
   if (weatherData.countdown < 7) {
     //get current weather
-    const res = await fetch(`${baseCurrentWeatherUrl}?lat=${weatherData.lat}&lon=${weatherData.long}&key=${WEATHER_KEY}`);
+    const res = await fetch(`${baseCurrentWeatherUrl}?lat=${weatherData.lat}&lon=${weatherData.long}&key=${WEATHER_KEY}&units=I`);
     try {
       const data = await res.json();
       return data;
@@ -59,7 +59,8 @@ const getWeather = async(weatherData) => {
     }
   } else {
     //get weather forecast
-    const res = await fetch(`${baseForecastWeatherUrl}?lat=${weatherData.lat}&lon=${weatherData.long}&key=${WEATHER_KEY}`);
+    console.log('weather forecast for multiple days');
+    const res = await fetch(`${baseForecastWeatherUrl}?lat=${weatherData.lat}&lon=${weatherData.long}&key=${WEATHER_KEY}&days=7&units=I`);
     try {
       const data = await res.json();
       return data;
@@ -72,10 +73,21 @@ const getWeather = async(weatherData) => {
 
 const getDestImage = async(destInfo) => {
   //first try to get an image for the city
-  const res = await fetch(`${basePixabayUrl}?key=${PIC_KEY}&q=${destInfo.city}&image_type=photo`);
+  let res = await fetch(`${basePixabayUrl}?key=${PIC_KEY}&q=${destInfo.city}&image_type=photo`);
   try {
-    const data = await res.json();
-    return data;
+    let data = await res.json();
+    if (data.total === 0) {
+      //try again with country
+      res = await fetch(`${basePixabayUrl}?key=${PIC_KEY}&q=${destInfo.country}&image_type=photo`);
+      try {
+        data = await res.json();
+        return data;
+      } catch(error) {
+        console.log('error', error);
+      }
+    } else {
+      return data;
+    }
   } catch(error) {
     console.log('error', error);
   }

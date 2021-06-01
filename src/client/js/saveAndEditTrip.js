@@ -15,6 +15,8 @@ function saveTrip(event) {
     const hotelName = document.getElementById('hotelName').value;
     const flightNum = document.getElementById('flightInfo').value;
 
+    let tripNum = event.target.name;
+
     if (tripName && destName && startDate && endDate) {
         //get current date
         const currentDate = new Date();
@@ -64,25 +66,35 @@ function saveTrip(event) {
                         if (localStorage.getItem('trips') === null) {
                             tripArr.push(newTrip);
                         } else {
-                            //trips item already exists so get it, 
+                            //trips item already exists so get it
                             tripArr = JSON.parse(localStorage.getItem('trips'));
-                            tripArr.push(newTrip);
+                            //check if the save button has a name attached (this has the current element number)
+                            if (event.target.name !== "") {
+                                let tripNum = event.target.name;
+                                tripArr.splice(tripNum, 1, newTrip);
+                            } else {
+                                tripArr.push(newTrip);
+                            }
                         }
                         localStorage.setItem('trips', JSON.stringify(tripArr));
 
                         //create trip card to display on sidebar and append to side bar under + trip
-                        const tripNum = (JSON.parse(localStorage.getItem('trips')).length) - 1;
-                        const dataForCard = {
-                            photo: pic,
-                            dest: destName,
-                            startDate: startDate,
-                            endDate: endDate,
-                            tripNum: tripNum
+                        if(event.target.name === "") {
+                            tripNum = (JSON.parse(localStorage.getItem('trips')).length) - 1;
+                            const dataForCard = {
+                                photo: pic,
+                                dest: destName,
+                                startDate: startDate,
+                                endDate: endDate,
+                                tripNum: tripNum
+                            }
+                            buildTrip.buildTripCard(dataForCard);
                         }
-                        buildTrip.buildTripCard(dataForCard);
 
                         //display trip in window
                         document.getElementById('tripForm').style.display = 'none';
+                        document.getElementById('saveTrip').setAttribute('name', "");
+                        genTripView.generateTripView(newTrip, tripNum);
                     })
                 })
             });
@@ -91,6 +103,35 @@ function saveTrip(event) {
         //alert that the form needs to be filled...
         document.getElementById('warningMessage').style.display ='inline';
     }
+}
+
+function editTrip(event) {
+    //get the trip number from the event
+    let tripNum = event.target.name;
+    if (!tripNum) {
+        //this is in case the event target is the icon and NOT the button
+        tripNum = event.target.parentElement.name;
+    }
+    //get the corresponding trip from the trip array in localStorage
+    const tripArr = JSON.parse(localStorage.getItem('trips'));
+    const tripItem = tripArr[tripNum];
+    console.log('trip item: ', tripItem);
+    const dest = tripItem.destinations[0];
+    
+
+    //reset form items
+    document.getElementById('tripName').value = tripItem.tripName;
+    document.getElementById('destinationName').value = dest.destinationName;
+    document.getElementById('startDate').value = dest.startDate;
+    document.getElementById('endDate').value = dest.endDate;
+    document.getElementById('hotelName').value = dest.hotel;
+    document.getElementById('flightInfo').value = dest.flight;
+
+    //show add trip with these items
+    document.getElementById('tripContentSection').style.display = 'none';
+    document.getElementById('welcomeSection').style.display = 'none';
+    document.getElementById('tripForm').style.display = 'block';
+    document.getElementById('saveTrip').setAttribute('name', tripNum);
 }
 
 const getGeoData = async(url, userData) => {
@@ -185,4 +226,4 @@ function parseCountry(countryName) {
     }
 }
 
-export { saveTrip }
+export { saveTrip, editTrip }

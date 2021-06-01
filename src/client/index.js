@@ -1,4 +1,4 @@
-import { saveTrip } from './js/saveAndEditTrip'
+import { saveTrip, editTrip } from './js/saveAndEditTrip'
 import { buildTripCard } from './js/buildTripCard'
 import { generateTripView } from './js/generateTripView'
 import { addTrip } from './js/addTrip'
@@ -17,17 +17,20 @@ window.addEventListener('DOMContentLoaded', (event) => {
     //load all of the trips stored in local storage
     const tripArr = JSON.parse(localStorage.getItem('trips'));
     let tripNum = 0;
-    for (const trip of tripArr) {
-        const dest = trip.destinations[0];
-        buildTripCard({photo: dest.image, dest: dest.destinationName, startDate: dest.startDate, endDate: dest.endDate, tripNum: tripNum});
-        tripNum = tripNum + 1;
+    if (tripArr) {
+        for (const trip of tripArr) {
+            const dest = trip.destinations[0];
+            buildTripCard({photo: dest.image, dest: dest.destinationName, startDate: dest.startDate, endDate: dest.endDate, tripNum: tripNum});
+            tripNum = tripNum + 1;
+        }    
     }
 
     //submit event listener added to form
     document.getElementById('saveTrip').addEventListener('click', saveTrip);
     document.getElementById('addTripBtn').addEventListener('click', addTrip);
     document.getElementById('cancel').addEventListener('click', cancelEditOrCreate);
-    document.getElementById('download').addEventListener('click', downloadTrip);
+    document.getElementById('print').addEventListener('click', downloadTrip);
+    document.getElementById('edit').addEventListener('click', editTrip);
     document.getElementById('remove').addEventListener('click', deleteTrip);
 });
 
@@ -38,5 +41,6 @@ export {
     addTrip,
     deleteTrip,
     cancelEditOrCreate,
-    downloadTrip
+    downloadTrip,
+    editTrip
 }

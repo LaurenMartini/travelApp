@@ -9,3 +9,5 @@ Travel App developed as Capstone Project for Udacity's Front End Web Developer N
 [LocalStorage and arrays](https://www.codegrepper.com/code-examples/javascript/javascript+update+local+storage+array "localStorage and arrays")
 
 [LocalStorage functions](https://www.htmldog.com/guides/javascript/advanced/localstorage/ "localStorage")
+
+[Printing a part of a page](https://stackoverflow.com/questions/20101409/how-can-i-insert-a-print-button-that-prints-a-form-in-a-webpage "printing a page")
