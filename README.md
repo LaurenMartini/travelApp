@@ -15,3 +15,5 @@ Travel App developed as Capstone Project for Udacity's Front End Web Developer N
 [Express Jest Test Ref 1](https://zellwk.com/blog/endpoint-testing/ "testing endpoints with jest and express")
 
 [Express Jest Test Ref 2](https://knowledge.udacity.com/questions/336147 "udacity knowledge post that helped")
+
+[Separating endpoints from server code](https://stackoverflow.com/questions/6059246/how-to-include-route-handlers-in-multiple-files-in-express "separating endpoints from server")
