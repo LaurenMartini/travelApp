@@ -168,12 +168,12 @@
         </div>
         <script>
             // from: https://classroom.udacity.com/nanodegrees/nd0011/parts/5bb114fe-8add-4c47-bc13-1cee34886c1a/modules/0eb61bba-702e-4dc3-bf32-a838bac60c33/lessons/1cfa87cb-377a-4746-a32a-64853dd2624b/concepts/dda219fc-dc2d-4238-9501-2142f3dca765
-            // if ('serviceWorker' in navigator) {
-            //     // Use the window load event to keep the page load performant
-            //     window.addEventListener('load', () => {
-            //         navigator.serviceWorker.register('/service-worker.js');
-            //     });
-            // }
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
         </script>
     </body>
 </html>

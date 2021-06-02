@@ -1,6 +1,7 @@
 import fetch from "node-fetch";
-const buildTrip = require('./buildTripCard');
-const genTripView = require('./generateTripView');
+import { buildTripCard } from './buildTripCard';
+import { generateTripView } from './generateTripView';
+
 
 function saveTrip(event) {
     event.preventDefault();
@@ -88,13 +89,13 @@ function saveTrip(event) {
                                 endDate: endDate,
                                 tripNum: tripNum
                             }
-                            buildTrip.buildTripCard(dataForCard);
+                            buildTripCard(dataForCard);
                         }
 
                         //display trip in window
                         document.getElementById('tripForm').style.display = 'none';
                         document.getElementById('saveTrip').setAttribute('name', "");
-                        genTripView.generateTripView(newTrip, tripNum);
+                        generateTripView(newTrip, tripNum);
                     })
                 })
             });

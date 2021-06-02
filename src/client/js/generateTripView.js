@@ -1,6 +1,3 @@
-const downloadTrip = require('./downloadTrip');
-const deleteTrip = require('./deleteTrip');
-
 function generateTripView(currentTrip, tripNum) {
     //set all other sections to display = none
     document.getElementById('welcomeSection').style.display = 'none';

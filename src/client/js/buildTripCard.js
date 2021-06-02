@@ -1,4 +1,4 @@
-const genTripView = require('./generateTripView');
+import { generateTripView } from './generateTripView';
 
 function buildTripCard(data) {
     //create document fragment
@@ -25,7 +25,7 @@ function buildTripCard(data) {
         const elementNum = elementId.split('_')[1];
         //generate the trip view for the trip at the localStorage array
         const tripElem = JSON.parse(localStorage.getItem('trips'))[elementNum];
-        genTripView.generateTripView(tripElem, elementNum);
+        generateTripView(tripElem, elementNum);
     })
 
     cardImg.setAttribute('class', 'cardImg');
