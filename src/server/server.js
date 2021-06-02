@@ -1,5 +1,5 @@
 //js object for API endpoint
-projectData = {};
+let projectData = {};
 
 //require express, body-parser, and cors
 var path = require('path');
@@ -130,3 +130,5 @@ app.post('/destImage', async function(req, res) {
 app.post('/countryInfo', async function(req, res) {
   res.send(await getCountryInfo(req.body.countryData));
 })
+
+module.exports = app
