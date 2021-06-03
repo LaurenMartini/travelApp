@@ -83,11 +83,6 @@ module.exports = function(app) {
         res.sendFile(path.resolve('dist/index.html'));
       });
       
-      //designates what port the app will listen to for incoming requests
-      app.listen(8081, function() {
-        console.log('Example app listening on port 8081!');
-      });
-      
       app.post('/add', async function(req, res) {
         res.send(await getGeoData(req.body.userData));
       });
